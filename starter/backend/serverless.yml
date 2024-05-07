@@ -101,7 +101,10 @@ functions:
           path: todos
           cors: true
           authorizer: Auth
-          reqValidatorName: RequestBodyValidator
+          reqValidatorName:
+          request:
+            schemas:
+              application/json: ${file(models/create-todo-request.json)}
           documentation:
             summary: Create a new todo task
             description: Create a todo task
@@ -126,6 +129,9 @@ functions:
           cors: true
           authorizer: Auth
           reqValidatorName: RequestBodyValidator
+          request:
+            schemas:
+              application/json: ${file(models/update-todo-request.json)}
           documentation:
             summary: Update a new todo task
             description: Update a todo task
